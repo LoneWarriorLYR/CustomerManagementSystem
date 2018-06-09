@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lyr_ssh.dao.UserDao;
 import com.lyr_ssh.entity.User;
 import com.lyr_ssh.service.UserService;
-import com.lyr_ssh.web.UserAction;
+import com.lyr_ssh.web.action.UserAction;
 
 /**
  * 

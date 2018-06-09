@@ -29,6 +29,7 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
                                                        注意：action的依赖属性需要在Spring配置文件中手动注入
        -->
          <!--action的class属性改为对应action的bean name属性  -->
+         <!-- 用户登录 -->
         <action name="UserAction_*" class="userAction" method="{1}">
             <result name="toHome" type="redirect">/index.htm</result>
             <result name="error">/login.jsp</result>
@@ -37,6 +38,9 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
         <action name="CustomerAction_*" class="customerAction" method="{1}">
             <result name="list">/jsp/customer/list.jsp</result>
             <result name="error">/login.jsp</result>
+        </action>
+        <!-- ajax请求， 加载数据字典下拉选项 -->
+        <action name="BaseDictAction" class="baseDictAction" method="execute">
         </action>
     </package>
 

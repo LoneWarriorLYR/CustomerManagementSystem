@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 
+import com.lyr_ssh.entity.BaseDict;
+
 /**
  * BaseDao
  * 

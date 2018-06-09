@@ -13,12 +13,9 @@
     注意：action对象的scope属性必须配置为多例 ：prototype
      action的生命周期，每一次请求都会创建一新的action对象
  -->
- <!--  userAction    action依赖service类  -->
-<bean name="userAction" class="com.lyr_ssh.web.UserAction" scope="prototype">
-   <property name="userService" ref="userService"></property>
-</bean>
+ 
  <!--  customerAction    action依赖service类  -->
-<bean name="customerAction" class="com.lyr_ssh.web.CustomerAction" scope="prototype">
+<bean name="customerAction" class="com.lyr_ssh.web.action.CustomerAction" scope="prototype">
    <property name="cs" ref="customerService"></property>
 </bean>
 
@@ -29,6 +26,25 @@
  <!-- dao层依赖HibernateTemplate（通过继承HibernateDaoSupport获得，不需要手动注入） ，
       HibernateTemplate需要依赖  注入sessionFactory -->
  <property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+
+ <!--  baseDictAction    action依赖service类  -->
+<bean name="baseDictAction" class="com.lyr_ssh.web.action.BaseDictAction" scope="prototype">
+   <property name="baseDictService" ref="baseDictService"></property>
+</bean>
+
+<bean name="baseDictService" class="com.lyr_ssh.service.impl.BaseDictServiceImpl">
+  <property name="baseDictDao" ref="baseDictDao"></property>
+</bean>
+<bean name="baseDictDao" class="com.lyr_ssh.dao.impl.BaseDictDaoImpl">
+ <!-- dao层依赖HibernateTemplate（通过继承HibernateDaoSupport获得，不需要手动注入） ，
+      HibernateTemplate需要依赖  注入sessionFactory -->
+ <property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+ 
+ <!--  userAction    action依赖service类  -->
+<bean name="userAction" class="com.lyr_ssh.web.action.UserAction" scope="prototype">
+   <property name="userService" ref="userService"></property>
 </bean>
 <!-- 配置userService 
     注意UserService依赖userdao
