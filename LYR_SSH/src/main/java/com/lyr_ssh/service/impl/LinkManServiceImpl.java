@@ -30,5 +30,15 @@ public class LinkManServiceImpl implements LinkManService {
 		// 返回PageBean对象
 		return pb;
 	}
+	public void saveOrUpdata(LinkMan linkMan) {
+		//如果对象中没有id，调用保存方法
+		if(linkMan.getLkm_id() == null){
+			lmd.save(linkMan);
+			
+		}else{
+			//有id，更新操作
+			lmd.update(linkMan);
+		}
+	}
 
 }

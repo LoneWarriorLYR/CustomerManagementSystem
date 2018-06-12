@@ -15,7 +15,7 @@
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/AddLinkManServlet"
+		action="${pageContext.request.contextPath }/LinkManAction_saveOrUpdata"
 		method=post>
 		
 

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Controller;
 
 import com.lyr_ssh.entity.Customer;
 import com.lyr_ssh.entity.LinkMan;
@@ -13,6 +14,7 @@ import com.lyr_ssh.util.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
+@Controller(value="linkManAction")
 public class LinkManAction implements ModelDriven<LinkMan> {
 
 	private LinkMan linkMan = new LinkMan();
@@ -38,15 +40,28 @@ public class LinkManAction implements ModelDriven<LinkMan> {
 		}*/
 		//调用serveice处理分页逻辑，会返回业务逻辑处理结果 --pageBean
 		PageBean pb = lms.getPageBean(dc,currentPage,pageSize);
+		System.out.println(pb);
 		//2.把返回的对象放到request域中
 		ActionContext.getContext().put("pageBean", pb);
 		//3.转发到list.jsp显示结果
 		return "list";
 	}
+	
+	/**
+	 * 保存或更新联系人
+	 * 
+	 * 
+	 */
+	public String saveOrUpdata(){
+		System.out.println(linkMan);
+		//调用service方法进行保存操作
+		lms.saveOrUpdata(linkMan);
+		return "tolist";
+	}
 
 	public LinkMan getModel() {
 		// TODO 自动生成的方法存根
-		return null;
+		return linkMan;
 	}
 	
 	public Integer getCurrentPage() {

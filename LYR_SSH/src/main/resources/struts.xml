@@ -45,7 +45,17 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
             <!-- <result name="error">/login.jsp</result> -->
         </action>
         <!-- ajax请求， 加载数据字典下拉选项 -->
-        <action name="BaseDictAction" class="baseDictAction" method="execute">
+        <action name="BaseDictAction" class="baseDictAction" method="execute"></action>
+        
+        <!-- 联系人 -->
+        <action name="LinkManAction_*" class="linkManAction" method="{1}">
+            <result name="list">/jsp/linkman/list.jsp</result>
+            <result name="toEdit">/jsp/linkman/add.jsp</result>
+            <result name="tolist" type="redirectAction">
+              <param name="namespace">/</param>
+              <param name="actionName">LinkManAction_list</param>
+            </result>
+            <!-- <result name="error">/login.jsp</result> -->
         </action>
     </package>
 

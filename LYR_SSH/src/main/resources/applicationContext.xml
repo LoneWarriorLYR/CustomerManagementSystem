@@ -133,7 +133,7 @@
 <!--植入： 将通知（事务）植入目标对象 -->
 <aop:config>
   <!-- 配置切点(指定需要植入事务的方法) -->
-  <aop:pointcut expression="execution(* com.lyr_ssh.dao.impl.*DaoImpl.*(..))" id="txPc"/>
+  <aop:pointcut expression="execution(* com.lyr_ssh.dao.impl.*.*(..))" id="txPc"/>
   <!-- 配置切面 (通知+切点)-->
   <aop:advisor advice-ref="txAdvice" pointcut-ref="txPc"/>
 </aop:config>
