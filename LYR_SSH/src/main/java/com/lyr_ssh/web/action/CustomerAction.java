@@ -1,4 +1,4 @@
-package com.lyr_ssh.web;
+package com.lyr_ssh.web.action;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.cfg.beanvalidation.ActivationContext;

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 
+<!-- 注入扫描 -->
+<context:component-scan base-package="com.lyr_ssh"></context:component-scan>
 
  <!-- 
   Struts2与Spring整合：由Spring创建Action和配置依赖属性
@@ -14,11 +16,11 @@
      action的生命周期，每一次请求都会创建一新的action对象
  -->
  <!--  userAction    action依赖service类  -->
-<bean name="userAction" class="com.lyr_ssh.web.UserAction" scope="prototype">
+<bean name="userAction" class="com.lyr_ssh.web.action.UserAction" scope="prototype">
    <property name="userService" ref="userService"></property>
 </bean>
  <!--  customerAction    action依赖service类  -->
-<bean name="customerAction" class="com.lyr_ssh.web.CustomerAction" scope="prototype">
+<bean name="customerAction" class="com.lyr_ssh.web.action.CustomerAction" scope="prototype">
    <property name="cs" ref="customerService"></property>
 </bean>
 
@@ -43,6 +45,7 @@
       HibernateTemplate需要依赖  注入sessionFactory -->
  <property name="sessionFactory" ref="sessionFactory"></property>
 </bean>
+
 
 <!--  -->
 <!-- 
