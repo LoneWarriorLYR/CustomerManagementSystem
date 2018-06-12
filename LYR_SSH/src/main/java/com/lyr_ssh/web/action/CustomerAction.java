@@ -52,6 +52,41 @@ public class CustomerAction implements ModelDriven<Customer>{
 		//3.转发到list.jsp显示结果
 		return "list";
 	}
+	
+	/**
+	 * 保存或更新用户
+	 * 
+	 */
+	public String saveOrUpdata(){
+		System.out.println(customer);
+		//调用service方法进行保存操作
+		cs.saveOrUpdata(customer);
+		
+		return "tolist";
+	}
+	
+	/**
+	 * 修改用户
+	 * 
+	 */
+	public String updata(){
+		//调用service根据id查询用户信息
+		Customer customerById = cs.getCustomerById(customer);
+		System.out.println(customerById);
+		//将查到的信息放到request域中
+		ActionContext.getContext().put("customer", customerById);
+		return "toEdit";
+	}
+	/**
+	 * 删除用客户
+	 * 
+	 */
+	public String delete(){
+		System.out.println(customer);
+		//调用service的删除方法
+		 cs.delete(customer);
+		return "tolist";
+	}
 
 	public Customer getModel() {
 		return customer;

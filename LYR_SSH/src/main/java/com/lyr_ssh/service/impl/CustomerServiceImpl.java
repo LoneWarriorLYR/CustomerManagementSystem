@@ -37,6 +37,21 @@ public class CustomerServiceImpl implements CustomerService{
 		//返回PageBean对象
 		return pb;
 	}
+	//保存或更新用户
+	public void saveOrUpdata(Customer customer) {
+		//处理customer与数据字典的关系
+		//调用dao的方法进行保存或更新
+		customerDao.saveOrUpdata(customer);
+	}
+	//查找用户
+	public Customer getCustomerById(Customer customer) {
+		//调用到dao方法
+		return  customerDao.getById(customer.getCust_id());
+	}
+	//删除用户
+	public void delete(Customer customer) {
+		customerDao.delete(customer);
+	}
 
 	
 	

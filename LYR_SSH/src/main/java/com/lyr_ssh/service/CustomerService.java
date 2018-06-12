@@ -2,6 +2,7 @@ package com.lyr_ssh.service;
 
 import org.hibernate.criterion.DetachedCriteria;
 
+import com.lyr_ssh.entity.Customer;
 import com.lyr_ssh.util.PageBean;
 
 public interface CustomerService {
@@ -14,5 +15,11 @@ public interface CustomerService {
 	 * @return
 	 */
 	PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize);
+
+	void saveOrUpdata(Customer customer);
+    //查找客户
+	Customer getCustomerById(Customer customer);
+    //删除客户
+	void delete(Customer customer);
 
 }

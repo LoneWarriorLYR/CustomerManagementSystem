@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 
 import com.lyr_ssh.entity.BaseDict;
+import com.lyr_ssh.entity.Customer;
 
 /**
  * BaseDao
@@ -21,6 +22,8 @@ public interface BaseDao<T>{
 
 	//增
 	void save(T t);
+	//增加或保存(存在id--》更新，不存在==保存)
+	void saveOrUpdata(T t);
 	//删
 	void delete(T t);
 	//删

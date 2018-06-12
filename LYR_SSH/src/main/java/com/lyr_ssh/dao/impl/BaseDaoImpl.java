@@ -100,6 +100,14 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport  implements BaseDao<T> {
 		return (List<T>) getHibernateTemplate().findByCriteria(dc,start,pageSize);
 	}
 
+	/**
+	 * 保存或更新
+	 */
+	public void saveOrUpdata(T t) {
+		getHibernateTemplate().saveOrUpdate(t);;
+		
+	}
+
 	
 
 }

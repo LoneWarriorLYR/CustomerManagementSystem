@@ -12,7 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.lyr_ssh.dao.UserDao;
+import com.lyr_ssh.entity.Customer;
 import com.lyr_ssh.entity.User;
+import com.lyr_ssh.service.CustomerService;
 import com.lyr_ssh.service.UserService;
 import com.lyr_ssh.web.action.UserAction;
 
@@ -37,6 +39,9 @@ public class TestHibernate { //hibernate ��������
 	//ע��UserService
 	@Resource(name="userService")
 	private UserService userService;
+	
+	@Resource(name="customerService")
+	private CustomerService cs;
 
 	@Test 
 	public void testHibernate(){//hibernate ��������
@@ -134,6 +139,28 @@ public class TestHibernate { //hibernate ��������
 		try {
 			User uu = userService.getByUserByCodePassword(user);
 			System.out.println(uu);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Test //����Aop����--->ok
+	public void testCustomerAction(){
+		Customer c = new Customer();
+		c.setCust_name("你大爷");
+		try {
+			cs.saveOrUpdata(c);
+			System.out.println(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Test //测试删除
+	public void testDelete(){
+		Customer c = new Customer();
+		c.setCust_id(9l);
+		try {
+			cs.delete(c);
+			System.out.println(c);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
