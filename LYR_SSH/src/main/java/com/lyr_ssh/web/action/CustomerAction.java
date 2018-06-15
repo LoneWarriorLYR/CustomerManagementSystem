@@ -52,6 +52,25 @@ public class CustomerAction implements ModelDriven<Customer>{
 		//3.转发到list.jsp显示结果
 		return "list";
 	}
+	/**
+	 * 查询客户列表2
+	 * @return
+	 */
+	public String list2(){
+		System.out.println("当前页数："+currentPage+"每页显示条数："+pageSize);
+		//封装离线查询对象
+		DetachedCriteria dc = DetachedCriteria.forClass(Customer.class);
+		//判断页面的搜索参数条件非空，将离线查询对象封装查询条件
+		if(StringUtils.isNotBlank(customer.getCust_name())){
+			dc.add(Restrictions.like("cust_name", "%"+customer.getCust_name()+"%"));
+		}
+		//调用serveice处理分页逻辑，会返回业务逻辑处理结果 --pageBean
+		PageBean pb = cs.getPageBean(dc,currentPage,pageSize);
+		//2.把返回的对象放到request域中
+		ActionContext.getContext().put("pageBean", pb);
+		//3.转发到list.jsp显示结果
+		return "list2";
+	}
 	
 	/**
 	 * 保存或更新用户

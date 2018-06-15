@@ -106,7 +106,7 @@
 
 
 
-<!-- ==========================AOP事务============================================================================= -->
+<!-- ==========================AOP事务（在service层开启事务操作）============================================================================= -->
 <!-- 配置Hibernate核心事务管器HibernateTransactionManager（封装事务操作【打开，回滚，提交】） 
     依赖sessionfactory
 -->
@@ -133,7 +133,8 @@
 <!--植入： 将通知（事务）植入目标对象 -->
 <aop:config>
   <!-- 配置切点(指定需要植入事务的方法) -->
-  <aop:pointcut expression="execution(* com.lyr_ssh.dao.impl.*.*(..))" id="txPc"/>
+  <!-- 切点配置在service层 -->
+  <aop:pointcut expression="execution(* com.lyr_ssh.service.impl.*.*(..))" id="txPc"/>
   <!-- 配置切面 (通知+切点)-->
   <aop:advisor advice-ref="txAdvice" pointcut-ref="txPc"/>
 </aop:config>

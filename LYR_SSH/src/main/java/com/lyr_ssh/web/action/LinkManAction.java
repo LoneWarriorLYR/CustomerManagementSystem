@@ -58,6 +58,38 @@ public class LinkManAction implements ModelDriven<LinkMan> {
 		lms.saveOrUpdata(linkMan);
 		return "tolist";
 	}
+	
+	
+	/**
+	 * 修改用户
+	 * 
+	 * 先通过id查询到用户信息
+	 * 
+	 * 然后将查到信息放到request域中
+	 * 
+	 * 
+	 * 
+	 */
+	public String updata(){
+		//调用service根据id查询联系人信息
+		LinkMan limkMan = lms.getCustomerById(linkMan);
+		//将查到的信息放到request域中
+		ActionContext.getContext().put("linkMan", limkMan);
+		return "toEdit";
+	}
+	/**
+	 * 删除用客户
+	 * 
+	 */
+	public String delete(){
+		System.out.println(linkMan);
+		//调用service的删除方法
+		 lms.delete(linkMan);
+		return "tolist";
+	}
+
+	
+	
 
 	public LinkMan getModel() {
 		// TODO 自动生成的方法存根

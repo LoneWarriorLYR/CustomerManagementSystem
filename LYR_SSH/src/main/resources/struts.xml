@@ -37,6 +37,7 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
         <!-- 客户列表 -->
         <action name="CustomerAction_*" class="customerAction" method="{1}">
             <result name="list">/jsp/customer/list.jsp</result>
+            <result name="list2">/jsp/customer/list2.jsp</result>
             <result name="toEdit">/jsp/customer/add.jsp</result>
             <result name="tolist" type="redirectAction">
               <param name="namespace">/</param>

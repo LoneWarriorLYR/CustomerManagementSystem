@@ -8,6 +8,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Service;
 
 import com.lyr_ssh.dao.LinkManDao;
+import com.lyr_ssh.entity.Customer;
 import com.lyr_ssh.entity.LinkMan;
 import com.lyr_ssh.service.LinkManService;
 import com.lyr_ssh.util.PageBean;
@@ -39,6 +40,14 @@ public class LinkManServiceImpl implements LinkManService {
 			//有id，更新操作
 			lmd.update(linkMan);
 		}
+	}
+	public LinkMan getCustomerById(LinkMan linkMan) {
+		
+		return lmd.getById(linkMan.getLkm_id());
+	}
+	
+	public void delete(LinkMan linkMan) {
+		lmd.delete(linkMan);
 	}
 
 }

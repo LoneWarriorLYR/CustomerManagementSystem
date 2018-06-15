@@ -109,9 +109,8 @@
 													<TD><s:property value="#linkman.lkm_gender" /></TD>
 													<TD><s:property value="#linkman.lkm_phone" /></TD>
 													<TD><s:property value="#linkman.lkm_mobile" /></TD>
-													<TD><s:property value="#linkman.lkm_memo" /></TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/LinkManAction_toEdit?lkm_id=<s:property value="#linkman.lkm_id" />">修改</a>
+													<a href="${pageContext.request.contextPath }/LinkManAction_updata?lkm_id=<s:property value="#linkman.lkm_id" />">修改</a>
 													&nbsp;&nbsp;
 													<a href="${pageContext.request.contextPath }/LinkManAction_delete?lkm_id=<s:property value="#linkman.lkm_id" />">删除</a>
 													</TD>
