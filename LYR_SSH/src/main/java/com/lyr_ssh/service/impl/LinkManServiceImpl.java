@@ -32,14 +32,8 @@ public class LinkManServiceImpl implements LinkManService {
 		return pb;
 	}
 	public void saveOrUpdata(LinkMan linkMan) {
-		//如果对象中没有id，调用保存方法
-		if(linkMan.getLkm_id() == null){
-			lmd.save(linkMan);
-			
-		}else{
-			//有id，更新操作
-			lmd.update(linkMan);
-		}
+		//添加或更新
+		lmd.saveOrUpdata(linkMan);
 	}
 	public LinkMan getCustomerById(LinkMan linkMan) {
 		

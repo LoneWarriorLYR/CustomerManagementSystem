@@ -35,9 +35,9 @@ public class LinkManAction implements ModelDriven<LinkMan> {
 		//封装离线查询对象
 		DetachedCriteria dc = DetachedCriteria.forClass(LinkMan.class);
 		//判断页面的搜索参数条件非空，将离线查询对象封装查询条件
-		/*if(StringUtils.isNotBlank(lms.getCust_name())){
-			dc.add(Restrictions.like("cust_name", "%"+customer.getCust_name()+"%"));
-		}*/
+		if(StringUtils.isNotBlank(linkMan.getLkm_name())){
+			dc.add(Restrictions.like("lkm_name", "%"+linkMan.getLkm_name()+"%"));
+		}
 		//调用serveice处理分页逻辑，会返回业务逻辑处理结果 --pageBean
 		PageBean pb = lms.getPageBean(dc,currentPage,pageSize);
 		System.out.println(pb);

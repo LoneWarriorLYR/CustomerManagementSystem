@@ -21,6 +21,17 @@ public class PageBean {
 	//分页列表数据
 	private List list;
 	
+	/**
+	 * 提供计算起始索引的方法
+	 * 
+	 * 起始索引：(当前页数-1)*每页显示条数
+	 * @return
+	 */
+	public Integer getStart(){
+		return (this.currentPage-1)*this.pageSize;
+	}
+	
+	
 	//创建对象时，初始化当前页数，总记录数，每页显示条数
 	public PageBean(Integer currentPage, Integer totalCount, Integer pageSize) {
 		this.currentPage = currentPage;
@@ -49,15 +60,6 @@ public class PageBean {
 		}
 	}
 	
-	/**
-	 * 提供计算起始索引的方法
-	 * 
-	 * 起始索引：(当前页数-1)*每页显示条数
-	 * @return
-	 */
-	public Integer getStart(){
-		return (this.currentPage-1)*this.pageSize;
-	}
 	
 	public Integer getCurrentPage() {
 		return currentPage;

@@ -35,7 +35,7 @@
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/LinkManAction_saveOrUpdata"
 		method=post>
-		
+		<input type="hidden" name="lkm_id" value="<s:property value="#linkMan.lkm_id" />" />
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -69,7 +69,7 @@
 								<td colspan="3">
 								<input type="hidden" name="customer.cust_id" style="WIDTH: 180px" id="cust_id" value="<s:property value="#linkMan.customer.cust_id" />" />
 								<input type="text"  style="WIDTH: 180px" id="cust_name" value="<s:property value="#linkMan.customer.cust_name"/>"/>
-								<input type="button" value="选择"  onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list2,'','width=600,height=300')" />
+								<input type="button" value="选择"  onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list2','','width=600,height=300')" />
 								</td>
 							</tr>
 							<TR>
