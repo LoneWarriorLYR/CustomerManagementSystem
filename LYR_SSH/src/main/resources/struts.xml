@@ -15,12 +15,18 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
    <constant name="struts.objectFactory" value="spring"></constant>
    
     <package name="crm" namespace="/" extends="struts-default" >
+		<!-- 全局结果集配置 -->
+		<global-results>
+			<result name="error" type="redirect" >/index.htm</result>
+		</global-results>
      <!-- 开启通配符 -->
       <global-allowed-methods>regex:.*</global-allowed-methods>
       <!-- 配置错误信息 -->
        <global-exception-mappings>
 			<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
 		</global-exception-mappings>
+		
+		
       <!-- Struts2整合Spring ：由Spring负责创建action对象和装配属性
         
                                           整合步骤
@@ -33,6 +39,7 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
         <action name="UserAction_*" class="userAction" method="{1}">
             <result name="toHome" type="redirect">/index.htm</result>
             <result name="error">/login.jsp</result>
+            <result name="tologin">/login.jsp</result>
         </action>
         <!-- 客户列表 -->
         <action name="CustomerAction_*" class="customerAction" method="{1}">
@@ -58,6 +65,17 @@ struts.objectFactory.spring.autoWire = name -》Spring 负责装配Action属性�
             </result>
             <!-- <result name="error">/login.jsp</result> -->
         </action>
+        
+        <!-- 客户拜访记录Action配置 -->
+		<action name="SaleVisitAction_*" class="saleVisitAction" method="{1}" >
+			<result name="toList" type="redirectAction" >
+				<param name="namespace">/</param>
+				<param name="actionName">SaleVisitAction_list</param>
+			</result>
+			<result name="list"  >/jsp/salevisit/list.jsp</result>
+			<result name="add"  >/jsp/salevisit/add.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
     </package>
 
 </struts>

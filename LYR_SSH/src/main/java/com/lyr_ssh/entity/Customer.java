@@ -1,4 +1,8 @@
 package com.lyr_ssh.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 客户实体类
  * @author Administrator
@@ -35,6 +39,15 @@ public class Customer {
 	private BaseDict cust_industry;//客户行业
 	private BaseDict cust_level; //客户级别
 	
+	//表达客户与拜访记录的一对多
+	private Set<SaleVisit> saleVisits = new HashSet<SaleVisit>();
+	
+	public Set<SaleVisit> getSaleVisits() {
+		return saleVisits;
+	}
+	public void setSaleVisits(Set<SaleVisit> saleVisits) {
+		this.saleVisits = saleVisits;
+	}
 	
 	public BaseDict getCust_source() {
 		return cust_source;

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.lyr_ssh.entity.Customer;
@@ -15,6 +16,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Controller(value="linkManAction")
+@Scope("prototype")
 public class LinkManAction implements ModelDriven<LinkMan> {
 
 	private LinkMan linkMan = new LinkMan();

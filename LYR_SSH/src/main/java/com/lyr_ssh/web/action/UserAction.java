@@ -35,6 +35,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		//3.�ض�����Ŀ��ҳ
 		return "toHome";
 	}
+	
+	public String logout(){
+		//清除用户session
+		ActionContext.getContext().getSession().remove("user");
+		return "tologin";
+	}
 
 
 	public User getModel() {
